@@ -1,35 +1,38 @@
-import { Tabs } from 'expo-router';
+import { Ionicons } from '@expo/vector-icons';
+import { Stack, useRouter } from 'expo-router';
 import React from 'react';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 
-import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
+export default function Layout() {
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-      }}>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+    <>
+      <Stack
+        screenOptions={{
+          headerStyle: { backgroundColor: '#FFEB3B' }, 
+          headerTintColor: '#212121', 
+          headerShadowVisible: false,
+          headerTitleStyle: { fontWeight: 'bold' },
+          headerTitleAlign: 'center',
+          title: 'Safra Challenge',
+          
+          headerRight: () => <AboutButton />,
         }}
       />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
-        }}
-      />
-    </Tabs>
+    </>
   );
 }
+
+function AboutButton() {
+  const router = useRouter();
+  return (
+    <TouchableOpacity style={styles.button} onPress={() => router.push('/about')}>
+      <Ionicons name="information-circle" size={28} color="#212121" />
+    </TouchableOpacity>
+  );
+}
+
+const styles = StyleSheet.create({
+  button: {
+    marginRight: 12,
+  },
+});

@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "safra-challenge",
+    "name": "Safra Challenge",
     "slug": "safra-challenge",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/index.png",
     "scheme": "safrachallenge",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -13,36 +13,42 @@
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/images/android-icon-foreground.png",
-        "backgroundImage": "./assets/images/android-icon-background.png",
-        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+        "foregroundImage": "./assets/images/index.png",
+        "backgroundColor": "#FFEB3B"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.mohavvvvd.safrachallenge"
+    },
+    "splash": {
+      "image": "./assets/images/index.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#FFEB3B"
     },
     "web": {
       "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/images/index.png"
     },
     "plugins": [
       "expo-router",
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 200,
+          "image": "./assets/images/index.png",
           "resizeMode": "contain",
-          "backgroundColor": "#ffffff",
-          "dark": {
-            "backgroundColor": "#000000"
-          }
+          "backgroundColor": "#FFEB3B"
         }
       ]
     ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "0df1b066-1430-47fd-ba8f-a5b55e1fa5f8"
+      }
     }
   }
 }
